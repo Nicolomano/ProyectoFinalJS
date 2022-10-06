@@ -1,27 +1,102 @@
+let boton = document.getElementById("boton");
+let input = document.getElementById("input");
+let botonInput = document.getElementById("botonInput");
+let div = document.getElementById("div");
+
 class Producto {
-    constructor(id, nombre, precio){
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-    }
+  constructor(id, nombre, precio, imagen) {
+    this.id = id;
+    this.nombre = nombre;
+    this.precio = precio;
+    this.imagen = imagen;
+  }
 }
 
-let productosDeOferta = [];
-productosDeOferta.push(new Producto(productosDeOferta.length + 1, "Filtro cobre 5gr", 345));
-productosDeOferta.push(new Producto(productosDeOferta.length + 1, "Filtro cobr.10gr", 500));
-productosDeOferta.push(new Producto(productosDeOferta.length + 1, "Filtro cobr.15gr", 650));
-productosDeOferta.push(new Producto(productosDeOferta.length + 1, "Valvula de acceso SPLIT 1/4F", 2000));
-productosDeOferta.push(new Producto(productosDeOferta.length + 1,"Valvula de acceso SPLIT 3/8", 2800));
+let productos = [];
+productos.push(
+  new Producto(
+    productos.length + 1,
+    "filtro cobre 5gr",
+    345,
+    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
+  )
+);
+productos.push(
+  new Producto(
+    productos.length + 1,
+    "filtro cobr.10gr",
+    500,
+    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
+  )
+);
+productos.push(
+  new Producto(
+    productos.length + 1,
+    "filtro cobr.15gr",
+    650,
+    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
+  )
+);
+productos.push(
+  new Producto(
+    productos.length + 1,
+    "valvula de acceso SPLIT 1/4F",
+    2000,
+    "https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg"
+  )
+);
+productos.push(
+  new Producto(
+    productos.length + 1,
+    "valvula de acceso SPLIT 3/8",
+    2800,
+    "https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg"
+  )
+);
 
-let saludo = prompt("Bienvenido, desea ver nuestras ofertas (ingrese SI o NO)");
+productos.forEach((producto) => {
+  let productoRenderizado = document.createElement("div");
+  productoRenderizado.innerHTML = `
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text">$ ${producto.precio}</p>
+            </div>
+        <button id=${producto.id}>Comprar</button>
+  </div>
+  `;
+  div.append(productoRenderizado);
+  let boton = document.getElementById(producto.id)
+  boton.addEventListener("click", () => comprarProducto(producto))
+});
+
+let carrito = [];
+
+const comprarProducto = (producto) =>{
+    let productoExiste = carrito.find(item => item.id===producto.id)
+     if(productoExiste === undefined){
+         carrito.push({
+             id: producto.id,
+             nombre: producto.nombre,
+             precio: producto.precio,
+             imagen: producto.precio,
+             cantidad: 1
+         })
+     }else{
+         productoExiste.precio = productoExiste.precio + producto.precio,
+         productoExiste.cantidad = productoExiste.cantidad + 1
+     } 
+ }
+
+ const buscarProducto = (string) =>{
+    console.log(string)
+    let productoBuscado = productos.find(producto => producto.nombre.includes(string))
+    console.log(productoBuscado);
+    input.value = ""
+   }
 
 
-if(saludo== "SI"){
-    productosDeOferta.forEach(item => {
-        let mensaje = `producto: ${item.nombre}
-precio: ${item.precio}`;
-        alert(mensaje)
-    });
-}else{
-    alert("bienvenido a nuestra pagina")
-}
+
+boton.addEventListener("click", console.log(carrito));
+botonInput.addEventListener("click", ()=> buscarProducto(input.value));
