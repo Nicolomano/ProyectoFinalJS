@@ -1,7 +1,7 @@
-let boton = document.getElementById("boton");
 let input = document.getElementById("input");
 let botonInput = document.getElementById("botonInput");
 let div = document.getElementById("div");
+const contenedorCarrito = document.getElementById("contenedorCarrito");
 
 class Producto {
   constructor(id, nombre, precio, imagen) {
@@ -11,6 +11,8 @@ class Producto {
     this.imagen = imagen;
   }
 }
+
+let carrito = [];
 
 let productos = [];
 productos.push(
@@ -71,7 +73,7 @@ productos.forEach((producto) => {
   boton.addEventListener("click", () => comprarProducto(producto))
 });
 
-let carrito = [];
+
 
 const comprarProducto = (producto) =>{
     let productoExiste = carrito.find(item => item.id===producto.id)
@@ -83,9 +85,25 @@ const comprarProducto = (producto) =>{
              imagen: producto.precio,
              cantidad: 1
          })
+         actualizarCarrito();
+         Swal.fire({
+          title: 'Agregado al carrito',
+          icon: 'success',
+          text:`${producto.nombre} fue agregado al carrito`,
+          showConfirmButton: false,
+          timer: 1000,
+         })
      }else{
          productoExiste.precio = productoExiste.precio + producto.precio,
-         productoExiste.cantidad = productoExiste.cantidad + 1
+         productoExiste.cantidad = productoExiste.cantidad + 1;
+         actualizarCarrito();
+         Swal.fire({
+          title: 'Agregado al carrito',
+          icon: 'success',
+          text:`${producto.nombre} fue agregado al carrito`,
+          showConfirmButton: false,
+          timer: 1000,
+         })
      } 
  }
 
@@ -97,6 +115,19 @@ const comprarProducto = (producto) =>{
    }
 
 
+   const actualizarCarrito = () => {
+    contenedorCarrito.innerHTML = "";
 
-boton.addEventListener("click", console.log(carrito));
+   carrito.forEach((product) => {
+    const div = document.createElement("div")
+    div.innerHTML = `
+    <p>${product.nombre}</p>
+    <p>Precio:${product.precio}</p>
+    <p>Cantidad: <span>${product.cantidad}</span> </p>
+    `
+    contenedorCarrito.appendChild(div);
+
+   })
+  }
+
 botonInput.addEventListener("click", ()=> buscarProducto(input.value));
