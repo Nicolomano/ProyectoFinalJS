@@ -3,60 +3,9 @@ let botonInput = document.getElementById("botonInput");
 let div = document.getElementById("div");
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 
-class Producto {
-  constructor(id, nombre, precio, imagen) {
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.imagen = imagen;
-  }
-}
-
 let carrito = [];
 
-let productos = [];
-productos.push(
-  new Producto(
-    productos.length + 1,
-    "filtro cobre 5gr",
-    345,
-    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
-  )
-);
-productos.push(
-  new Producto(
-    productos.length + 1,
-    "filtro cobr.10gr",
-    500,
-    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
-  )
-);
-productos.push(
-  new Producto(
-    productos.length + 1,
-    "filtro cobr.15gr",
-    650,
-    "https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg"
-  )
-);
-productos.push(
-  new Producto(
-    productos.length + 1,
-    "valvula de acceso SPLIT 1/4F",
-    2000,
-    "https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg"
-  )
-);
-productos.push(
-  new Producto(
-    productos.length + 1,
-    "valvula de acceso SPLIT 3/8",
-    2800,
-    "https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg"
-  )
-);
-
-productos.forEach((producto) => {
+/* productos.forEach((producto) => {
   let productoRenderizado = document.createElement("div");
   productoRenderizado.innerHTML = `
     <div class="card" style="width: 18rem;">
@@ -71,7 +20,28 @@ productos.forEach((producto) => {
   div.append(productoRenderizado);
   let boton = document.getElementById(producto.id)
   boton.addEventListener("click", () => comprarProducto(producto))
-});
+}); */
+
+fetch("./productos.json")
+.then(response=> response.json())
+.then(data =>{
+  data.forEach(producto => {
+    let productoRenderizado = document.createElement("div")
+    productoRenderizado.innerHTML = `
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${producto.img}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">${producto.nombre}</h5>
+                <p class="card-text">$ ${producto.precio}</p>
+            </div>
+        <button id=${producto.id}>Comprar</button>
+  </div>
+  `;
+  div.append(productoRenderizado);
+  let boton = document.getElementById(producto.id)
+  boton.addEventListener("click", () => comprarProducto(producto))
+  })
+})
 
 
 
@@ -129,5 +99,8 @@ const comprarProducto = (producto) =>{
 
    })
   }
+
+
+
 
 botonInput.addEventListener("click", ()=> buscarProducto(input.value));
