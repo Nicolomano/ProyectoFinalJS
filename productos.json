@@ -1,7 +1,32 @@
 [
-{"nombre": "filtro cobre 5gr", "precio":345,"img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg", "id": 1},
-{"nombre" : "filtro cobr.10gr", "precio":500,"img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg", "id": 2},
-{"nombre" : "filtro cobr.15gr", "precio":650,"img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg", "id": 3},
-{"nombre" : "valvula de acceso SPLIT 1/4F", "precio":2000,"img":"https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg", "id": 4},
-{"nombre" : "valvula de acceso SPLIT 3/8", "precio":2800,"img":"https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg", "id": 5}
+    {   
+        "nombre": "filtro cobre 5gr",
+        "precio":345,
+        "img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg",
+        "id": 1
+    },
+    {   
+        "nombre" : "filtro cobr.10gr",
+        "precio":500,
+        "img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg", 
+        "id": 2
+    },
+    {   
+        "nombre" : "filtro cobr.15gr",
+        "precio":650,
+        "img":"https://www.sparepartsmarkt.com/image/cache/data/products/drayer-KG0037964-2-800x800.jpg",
+        "id": 3
+    },
+    {   
+        "nombre" : "valvula de acceso SPLIT 1/4F",
+        "precio":2000,
+        "img":"https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg", 
+        "id": 4
+    },
+    {
+        "nombre" : "valvula de acceso SPLIT 3/8", 
+        "precio":2800,
+        "img":"https://http2.mlstatic.com/D_NQ_NP_872749-MLA43485047260_092020-O.jpg", 
+        "id": 5
+    }
 ]

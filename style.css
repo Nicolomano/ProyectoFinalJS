@@ -11,3 +11,31 @@
     display: inline-block;
     background: rgb(184, 182, 182);
 }
+
+.formLog{
+    display: block;
+}
+
+.formLogOn {
+    display: none;
+}
+
+.usuarioOff{
+    display: none;
+}
+
+.usuarioOn{
+    display: block;
+}
+
+.carritoOff{
+    display: none;
+}
+
+.carritoOn{
+    display: block;
+}
+
+/* .card{
+    display: inline-block;
+} */
