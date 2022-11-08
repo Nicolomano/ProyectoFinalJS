@@ -1,31 +1,41 @@
-#header {
-    background: rgb(184, 182, 182);
+body{
+    font-family: sans-serif;
 }
 
-#titulo {
-    display: inline-block;
-    background: rgb(184, 182, 182);
+.header {
+    display: flex;
+    height: 100px;
+    background: linear-gradient(to right,#24E0E4, #9DDFE0) ;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#listado {
-    display: inline-block;
-    background: rgb(184, 182, 182);
+.div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.formLog{
-    display: block;
+.logo{
+    display: flex;
+    align-items: center;
 }
 
-.formLogOn {
-    display: none;
+.titulo {
+    display: flex;
+    align-items: center;
 }
 
-.usuarioOff{
-    display: none;
+.logoNieve{
+    width: 3vw;
 }
 
-.usuarioOn{
-    display: block;
+.carritoIcon{
+    width: 2vw;
+    height: auto;
+    right: 3%;
+    top: 2%;
 }
 
 .carritoOff{
@@ -34,8 +44,49 @@
 
 .carritoOn{
     display: block;
+    position: fixed;
+    top: 10%;
+    right: 1%;
+    width: auto;
+    height: auto;
+    min-height: 30%;
+    max-height: 60%;
+    background-color: whitesmoke;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0.4);
+    border-radius: 5px ;
+    border: 1px solid black;
 }
 
-/* .card{
-    display: inline-block;
-} */
+.fotoProductoCarrito{
+    width: 3vw;
+    height: auto;
+}
+
+.on{
+    display: block;
+}
+
+.off{
+    display: none;
+}
+
+.card{
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease;
+    padding: 15px;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translate(-1.5%, -1.5%);
+}
+
+.botonComprar{
+    border-radius: 9px;
+}

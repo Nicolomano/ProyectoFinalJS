@@ -10,46 +10,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header id="header">
-        <div id="titulo">
+    <header id="header" class="header">
+        <div class="logo" alt="nombreEmpresa">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="logoNieve" viewBox="0 0 16 16">
+                <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793v-1.086l-.646.647a.5.5 0 0 1-.707-.708L7.5 10.293V8.866l-1.236.713-.495 1.85a.5.5 0 1 1-.966-.26l.237-.882-.94.542-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495.94-.542-.882-.237a.5.5 0 1 1 .258-.966l1.85.495L7 8l-1.236-.713-1.849.495a.5.5 0 1 1-.258-.966l.883-.237-.94-.542-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 0 1 .966-.258l.495 1.849.94.542-.236-.883a.5.5 0 0 1 .966-.258l.495 1.849 1.236.713V5.707L6.147 4.354a.5.5 0 1 1 .707-.708l.646.647V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 0 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v1.086l.647-.647a.5.5 0 1 1 .707.708L8.5 5.707v1.427l1.236-.713.495-1.85a.5.5 0 1 1 .966.26l-.236.882.94-.542.495-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495-.94.542.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l1.236.713 1.849-.495a.5.5 0 0 1 .259.966l-.883.237.94.542 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-.94-.542.236.883a.5.5 0 0 1-.966.258L9.736 9.58 8.5 8.866v1.427l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647v1.086l1.354 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z"/>
+            </svg> 
             <h1>Refrigeracion AYP</h1>
             <h2>Venta de productos de refrigeracion</h2>
         </div>
-        <div id="listado" class="listado">
-            <ul>
-                <li>gases refrigerantes</li>
-                <li>Herramientas</li>
-                <li>Motocompresores</li>
-                <li>Repuestos de lavarropas</li>
-                <li>Elementos electricos</li>
-                <li>Caños de cobre</li>
-                <li>Aires acondiciondados</li>
-            </ul>
+        <div id="titulo" class="titulo">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" id="carritoIcon" class="carritoIcon" viewBox="0 0 16 16">
+                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+            </svg>
+            <p class="contadorProductos" id="contador"></p>
         </div>
-        <input type="text" id="input">
-        <button id="botonInput">buscar</button>
-        <div>
-            <button id="carrito">Mostrar carrito</button>
-            <div id="contenedorCarrito" class="carritoOff"></div>
+        <div id="carrito" class="carritoOff">
+                <h1 id="vacio" class="off">carrito vacio</h1>
+                <button id="finalizarCompra">finalizar compra</button>
+                <table id="tableCarrito" class="on">
+                    <thead class="theadCarrito">
+                        <tr>
+                            <th>imagen</th>
+                            <th>producto</th>
+                            <th>cantidad</th>
+                            <th>precio</th>
+                            <th colspan="2">acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carritoTable"></tbody>
+
+                </table>
         </div>
     </header>
     <div id="div"></div>
-    
-    <div id="usuario" class="usuarioOff"></div>
-    <div id="formularioLog" class="formLog">
-        <form id="formulario">
-            <input type="text" id="email">
-            <input type="text" id="mensaje">
-            <button>Enviar</button>
-        </form>
-    </div>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
+    <script src="./database/traerProductos.js" type="module"></script>
 </body>
 </html>
+
